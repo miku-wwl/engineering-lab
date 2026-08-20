@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Engineering Lab: a future home for interactive demos, experiments, and games by Weilai Wang.">
+  <title>Engineering Lab · Weilai Wang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./site.css">
+  <style>
+    .lab-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .lab-card { min-height: 190px; padding: 1.2rem; border: 1px dashed var(--border-strong); border-radius: var(--radius); background: linear-gradient(135deg, var(--bg-elev), var(--surface)); }
+    .lab-card h3 { margin-bottom: 0.6rem; color: var(--text); }
+    .lab-card p { color: var(--muted); }
+    .lab-tag { display: inline-flex; margin-bottom: 1rem; padding: 0.2rem 0.5rem; border: 1px solid var(--blue); border-radius: 999px; color: var(--blue); font: 0.7rem var(--mono); text-transform: uppercase; }
+    .probe { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; padding-top: 0.85rem; border-top: 1px solid var(--border); }
+    .probe-output { color: var(--green); font: 0.75rem var(--mono); }
+    .probe button { padding: 0.45rem 0.7rem; border: 1px solid var(--border-strong); border-radius: 7px; background: var(--surface-2); color: var(--text); cursor: pointer; }
+    .probe button:hover { border-color: var(--green); color: var(--green); }
+    @media (max-width: 760px) { .lab-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-shell header-inner">
+      <a class="brand" href="https://miku-wwl.github.io/" aria-label="Back to Weilai Wang's main hub"><span>~/miku-wwl</span> / engineering-lab</a>
+      <div class="header-actions">
+        <a class="back-link" href="https://miku-wwl.github.io/">← Back to Main Hub</a>
+        <a class="repo-link" href="https://github.com/miku-wwl/engineering-lab" target="_blank" rel="noreferrer">repo ↗</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">◐ theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-shell">
+    <section class="hero">
+      <div><p class="eyebrow">~/engineering-lab $ ./launchpad --future</p><h1>Engineering Lab</h1><p class="lede">A playground for interactive demos, Three.js experiments, HTML games, hackathon prototypes, and small tools that deserve a place to run.</p></div>
+      <aside class="signal-board" aria-label="Engineering lab status"><div class="signal-row"><span>route</span><strong>/engineering-lab/</strong></div><div class="signal-row"><span>signal</span><strong class="live" data-live-status>online</strong></div><div class="signal-row"><span>slots</span><strong>4 open</strong></div></aside>
+    </section>
+
+    <section class="window" aria-labelledby="lab-title">
+      <div class="window-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>lab/launchpad</span></div>
+      <div class="window-body">
+        <div class="section-heading"><div><p class="eyebrow">/experiment-slots</p><h2 id="lab-title">Future playground</h2></div><p>modules waiting for a commit</p></div>
+        <div class="lab-grid">
+          <article class="lab-card"><span class="lab-tag">slot 01 · planned</span><h3>Systems visualizer</h3><p>Animate queues, service boundaries, and failure recovery so distributed-systems ideas can be explored spatially.</p></article>
+          <article class="lab-card"><span class="lab-tag">slot 02 · planned</span><h3>Three.js experiments</h3><p>Interactive scenes for infrastructure topology, resource relationships, and small generative studies.</p></article>
+          <article class="lab-card"><span class="lab-tag">slot 03 · planned</span><h3>HTML game shelf</h3><p>Small browser games and decision systems built with progressive enhancement and no build step.</p></article>
+          <article class="lab-card"><span class="lab-tag">slot 04 · live probe</span><h3>Launchpad heartbeat</h3><p>This tiny control is a placeholder for future demos and confirms the lab can host client-side interaction.</p><div class="probe"><span class="probe-output" data-probe-output>probe idle</span><button type="button" data-probe>run probe</button></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="site-shell footer-inner"><p>❯ echo "lab initialized · awaiting experiments"</p><p>Independent GitHub Pages module · <a href="https://github.com/miku-wwl/engineering-lab">source</a></p></div></footer>
+  <script src="./site.js"></script>
+  <script>
+    (function () {
+      var button = document.querySelector('[data-probe]');
+      var output = document.querySelector('[data-probe-output]');
+      var count = 0;
+      if (button && output) button.addEventListener('click', function () {
+        count += 1;
+        output.textContent = 'probe ' + String(count).padStart(2, '0') + ' · nominal';
+      });
+    })();
+  </script>
+</body>
+</html>

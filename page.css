@@ -1,7 +1,6 @@
 .page-main { padding-top: 1.4rem; }
 .lab-hero { margin-bottom: 1.4rem; }
 .lab-visual { position: relative; height: 330px; min-height: 330px; }
-.lab-visual .scene-frame { height: 330px; min-height: 330px; border-color: rgba(39, 201, 255, 0.44); }
 .scene-label { position: absolute; z-index: 4; color: var(--cyan); font: 0.58rem var(--mono); letter-spacing: 0.08em; pointer-events: none; }
 .scene-label-top { top: 0.8rem; left: 1rem; }
 .scene-label-bottom { right: 1rem; bottom: 0.8rem; color: var(--text-faint); }
@@ -24,5 +23,5 @@
 .probe-output { color: var(--green); font: 0.67rem var(--mono); }
 .probe button { padding: 0.4rem 0.6rem; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-2); color: var(--text); font: 0.66rem var(--mono); cursor: pointer; }
 .probe button:hover { border-color: var(--green); color: var(--green); }
-@media (max-width: 1000px) { .lab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lab-visual, .lab-visual .scene-frame { height: 300px; min-height: 300px; } }
-@media (max-width: 720px) { .lab-visual, .lab-visual .scene-frame { height: 255px; min-height: 255px; } .lab-grid { grid-template-columns: 1fr; } .lab-card { min-height: 175px; } }
+@media (max-width: 1000px) { .lab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lab-visual { height: 300px; min-height: 300px; } }
+@media (max-width: 720px) { .lab-visual { height: 255px; min-height: 255px; } .lab-grid { grid-template-columns: 1fr; } .lab-card { min-height: 175px; } }
